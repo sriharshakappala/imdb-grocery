@@ -1,0 +1,17 @@
+store has
+  list of items in it's inventory
+  can view sales till now
+
+
+item has
+  code
+  name
+  discount
+  price_per_item
+  quantity
+
+when checkout happens
+  loop through cart items and reduce the quantity
+  apply discounts if applicable
+  reduce inventory
+  register in sales
