@@ -23,6 +23,12 @@ BILLING_MENU = "
   5. Exit
 "
 
+DISCOUNT_MENU = "
+  1. Store Employee
+  2. Senior Citizen
+  3. None
+"
+
 store = Store.new('My Awesome Store', 10, 15)
 
 def displayMenu
@@ -49,6 +55,12 @@ def billingProcess store
     when 2
       cart.view
     when 3
+      puts DISCOUNT_MENU
+      discountType = gets.chomp.to_i
+      status, error = CartService.new(store).placeOrder cart, discountType
+      if status == -1
+        puts error
+      end
     when 4
       CartService.new(store).clearCart cart
     when 5

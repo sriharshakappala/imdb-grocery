@@ -14,7 +14,7 @@ class Cart
   end
 
   def total
-    cart_items.sum(:price)
+    cart_items.map(&:price).inject(0, &:+)
   end
 
   def clear

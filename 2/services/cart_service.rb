@@ -9,7 +9,6 @@ class CartService
   end
 
   def addProductToCart cart, code, quantity
-    binding.pry
     itemInStore = store.getItemByCode code
     if itemInStore.nil?
       return -1, 'Invalid Product'
@@ -24,10 +23,19 @@ class CartService
     itemInStore.removeStock quantity
   end
 
-  def clearCart
+  def clearCart cart
     cart.cart_items.each do |item|
       binding.pry
+      cart.clearItem item.code
+      itemInStore = store.getItemByCode item.code
+      itemInStore.addStock item.quantity
     end
+  end
+
+  def placeOrder cart, discount
+    binding.pry
+    store.orders << cart
+    store.sales += cart.total
   end
 
 end
