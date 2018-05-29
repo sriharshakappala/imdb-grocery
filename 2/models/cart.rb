@@ -10,7 +10,7 @@ class Cart
   end
 
   def view
-    tp cart_items, 'code', 'name', 'price', 'quantity'
+    tp cart_items, 'code', 'name', 'price', 'discount', 'quantity', 'total_before_discount', 'total_after_discount'
   end
 
   def total

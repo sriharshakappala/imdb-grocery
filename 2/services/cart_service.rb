@@ -24,15 +24,13 @@ class CartService
     elsif quantity > itemInStore.quantity
       return -1, 'Requested quantity is not available'
     end
-    price = itemInStore.discountedPrice * quantity
-    ci = CartItem.new(itemInStore.code, itemInStore.name, quantity, price)
+    ci = CartItem.new(itemInStore.code, itemInStore.name, quantity, itemInStore.price, itemInStore.discount)
     cart.cart_items << ci
     itemInStore.removeStock quantity
   end
 
-  def clearCart cart
+  def clearCart
     cart.cart_items.each do |item|
-      binding.pry
       cart.clearItem item.code
       itemInStore = store.getItemByCode item.code
       itemInStore.addStock item.quantity

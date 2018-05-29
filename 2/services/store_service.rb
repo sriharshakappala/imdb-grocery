@@ -1,4 +1,4 @@
-require_relative '../models/cart'
+require './models/cart'
 
 class StoreService
 
@@ -65,9 +65,9 @@ class StoreService
           puts error
         end
       when 4
-        CartService.new(store).clearCart cart
+        CartService.new(store, cart).clearCart
       when 5
-        status, error = CartService.new(store).clearCart cart
+        status, error = CartService.new(store, cart).clearCart
         checkout = true
       else
         puts 'Invalid Command'
