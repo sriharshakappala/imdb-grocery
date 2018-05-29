@@ -22,6 +22,10 @@ class Store
   def viewSales
   end
 
+  def viewRevenue
+    binding.pry
+  end
+
   def open?
     open
   end

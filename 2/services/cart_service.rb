@@ -45,9 +45,9 @@ class CartService
     end
     puts DISCOUNT_MENU
     option = gets.chomp.to_i
-    puts option
     binding.pry
-    order = Order.new('Senior Citizen', 15)
+    discountType, discountPercent = getdiscountProperties option
+    order = Order.new(discountType, discountPercent)
     cart.cart_items.each do |i|
       order.order_items << OrderItem.new(
         i.code, i.name, i.quantity, i.price, i.discount, i.total_before_discount, i.total_after_discount
@@ -55,6 +55,18 @@ class CartService
     end
     store.orders << order
     store.sales += order.totalAfterDiscount
+  end
+
+  private
+
+  def getdiscountProperties option
+    if option == 1
+      return 'Employee', store.employeeDiscount
+    elsif option == 2
+      return 'Senior Citizen', store.seniorCitizenDiscount
+    elsif option == 3
+      return 'None', 0
+    end
   end
 
 end

@@ -12,7 +12,8 @@ STORE_MENU = "
   2. View Inventory
   3. Billing
   4. View Sales
-  5. Close Store
+  5. View Revenue
+  6. Close Store
 "
 
 def displayMenu
@@ -34,6 +35,8 @@ while store.open?
     when 4
       store.viewOrders
     when 5
+      store.viewSales
+    when 6
       store.close
     else
       puts 'Invalid Command'
