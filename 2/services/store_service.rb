@@ -53,7 +53,7 @@ class StoreService
         code = gets.chomp
         puts "Enter quantity to buy"
         quantity = gets.chomp.to_i
-        status, error = CartService.new(store, cart).addProductToCart cart, code, quantity
+        status, error = CartService.new(store, cart).addProductToCart code, quantity
         if status == -1
           puts error
         end
@@ -73,11 +73,6 @@ class StoreService
         puts 'Invalid Command'
       end
     end
-  end
-
-  private
-
-  def validateItem
   end
 
 end
