@@ -63,6 +63,8 @@ class StoreService
         status, error = CartService.new(store, cart).placeOrder
         if status == -1
           puts error
+        else
+          checkout = true
         end
       when 4
         CartService.new(store, cart).clearCart

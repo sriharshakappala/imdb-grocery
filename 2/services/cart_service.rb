@@ -1,4 +1,6 @@
-require_relative '../models/cart_item'
+require './models/cart_item'
+require './models/order'
+require './models/order_item'
 
 class CartService
 
@@ -45,8 +47,14 @@ class CartService
     option = gets.chomp.to_i
     puts option
     binding.pry
-    store.orders << cart
-    store.sales += cart.total
+    order = Order.new('Senior Citizen', 15)
+    cart.cart_items.each do |i|
+      order.order_items << OrderItem.new(
+        i.code, i.name, i.quantity, i.price, i.discount, i.total_before_discount, i.total_after_discount
+      )
+    end
+    store.orders << order
+    store.sales += order.totalAfterDiscount
   end
 
 end
