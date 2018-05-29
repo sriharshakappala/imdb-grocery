@@ -20,6 +20,7 @@ BILLING_MENU = "
   2. View Cart
   3. Checkout
   4. Clear Cart
+  5. Exit
 "
 
 store = Store.new('My Awesome Store', 10, 15)
@@ -36,13 +37,11 @@ def billingProcess store
     input = gets.chomp.to_i
     case input
     when 1
-      binding.pry
       store.viewInventory
       puts "Enter product to buy"
       code = gets.chomp
       puts "Enter quantity to buy"
       quantity = gets.chomp.to_i
-      binding.pry
       status, error = CartService.new(store).addProductToCart cart, code, quantity
       if status == -1
         puts error
@@ -51,7 +50,10 @@ def billingProcess store
       cart.view
     when 3
     when 4
-      cart.clear
+      CartService.new(store).clearCart cart
+    when 5
+      status, error = CartService.new(store).clearCart cart
+      checkout = true
     else
       puts 'Invalid Command'
     end
@@ -68,6 +70,8 @@ while store.open?
       store.viewInventory
     when 3
       billingProcess store
+    when 4
+      store.viewOrders
     when 5
       store.close
     else

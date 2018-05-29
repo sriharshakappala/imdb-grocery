@@ -3,7 +3,7 @@ require 'pry'
 
 class Store
 
-  attr_accessor :name, :inventory, :open
+  attr_accessor :name, :inventory, :open, :employeeDiscount, :seniorCitizenDiscount, :sales
 
   def initialize name, employeeDiscount, seniorCitizenDiscount
     @name = name
@@ -11,6 +11,7 @@ class Store
     @open = true
     @employeeDiscount = employeeDiscount
     @seniorCitizenDiscount = seniorCitizenDiscount
+    @sales = 0
   end
 
   def viewInventory

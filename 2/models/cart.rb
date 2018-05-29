@@ -21,8 +21,8 @@ class Cart
     @cart_items = []
   end
 
-  # def clearItem code
-  #   @cart_items.delete_if { |ci| ci.code == code }
-  # end
+  def clearItem code
+    @cart_items.delete_if { |ci| ci.code == code }
+  end
 
 end
