@@ -23,12 +23,6 @@ BILLING_MENU = "
   5. Exit
 "
 
-DISCOUNT_MENU = "
-  1. Store Employee
-  2. Senior Citizen
-  3. None
-"
-
 store = Store.new('My Awesome Store', 10, 15)
 
 def displayMenu
@@ -81,7 +75,8 @@ while store.open?
     when 2
       store.viewInventory
     when 3
-      billingProcess store
+      # billingProcess store
+      StoreService.new(store).processBilling
     when 4
       store.viewOrders
     when 5

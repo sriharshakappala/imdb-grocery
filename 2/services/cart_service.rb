@@ -2,13 +2,20 @@ require_relative '../models/cart_item'
 
 class CartService
 
-  attr_accessor :store
+  DISCOUNT_MENU = "
+    1. Store Employee
+    2. Senior Citizen
+    3. None
+  "
 
-  def initialize store
+  attr_accessor :store, :cart
+
+  def initialize store, cart
     @store = store
+    @cart = cart
   end
 
-  def addProductToCart cart, code, quantity
+  def addProductToCart code, quantity
     itemInStore = store.getItemByCode code
     if itemInStore.nil?
       return -1, 'Invalid Product'
@@ -33,6 +40,11 @@ class CartService
   end
 
   def placeOrder cart, discount
+    if cart.cart_items.empty?
+      return -1, 'Cart is empty'
+    end
+    # puts DISCOUNT_MENU
+    # option = gets.chomp.to_i
     binding.pry
     store.orders << cart
     store.sales += cart.total
