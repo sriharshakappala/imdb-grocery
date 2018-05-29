@@ -39,12 +39,13 @@ class CartService
     end
   end
 
-  def placeOrder cart, discount
+  def placeOrder
     if cart.cart_items.empty?
       return -1, 'Cart is empty'
     end
-    # puts DISCOUNT_MENU
-    # option = gets.chomp.to_i
+    puts DISCOUNT_MENU
+    option = gets.chomp.to_i
+    puts option
     binding.pry
     store.orders << cart
     store.sales += cart.total
