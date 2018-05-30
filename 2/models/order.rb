@@ -1,8 +1,11 @@
+require 'securerandom'
+
 class Order
 
-  attr_accessor :order_items, :discount_type, :discount_percent
+  attr_accessor :id, :order_items, :discount_type, :discount_percent
 
   def initialize discount_type, discount_percent
+    @id = SecureRandom.uuid
     @order_items = []
     @discount_type = discount_type
     @discount_percent = discount_percent

@@ -20,11 +20,19 @@ class Store
   end
 
   def viewOrders
+    orders.each do |order|
+      puts "Order Number - #{order.id}"
+      tp order.order_items, 'code', 'name', 'quantity', 'price', 'discount', 'total_before_discount', 'total_after_discount'
+      puts 'DISCOUNT INFO'
+      puts "Discount Type - #{order.discount_type}"
+      puts "Discount Percent - #{order.discount_percent}"
+    end
     binding.pry
   end
 
   def viewSales
     binding.pry
+    "Today's sales is #{sales}"
   end
 
   def open?

@@ -35,7 +35,7 @@ while store.open?
     when 4
       store.viewOrders
     when 5
-      store.viewRevenue
+      store.viewSales
     when 6
       store.close
     else
