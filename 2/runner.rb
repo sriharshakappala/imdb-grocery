@@ -33,9 +33,9 @@ while store.open?
     when 3
       StoreService.new(store).processBilling
     when 4
-      store.viewOrders
+      StoreService.new(store).viewOrders
     when 5
-      store.viewSales
+      StoreService.new(store).viewSales
     when 6
       store.close
     else
