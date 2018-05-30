@@ -12,4 +12,10 @@ class CartItem
     @total_after_discount = (price - discount) * quantity
   end
 
+  def addQuantity num
+    @quantity += num
+    @total_before_discount = price * quantity
+    @total_after_discount = (price - discount) * quantity
+  end
+
 end

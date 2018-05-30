@@ -25,4 +25,8 @@ class Cart
     @cart_items.delete_if { |ci| ci.code == code }
   end
 
+  def getItemByCode code
+    cart_items.find { |item| item.code == code }
+  end
+
 end

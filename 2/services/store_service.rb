@@ -80,7 +80,6 @@ class StoreService
   def viewOrders
     puts "*********************************************************************"
     store.orders.each do |order|
-      binding.pry
       puts "Order Number - #{order.id}"
       tp order.order_items, 'code', 'name', 'quantity', 'price', 'discount', 'total_before_discount', 'total_after_discount'
       puts 'DISCOUNT INFO'
