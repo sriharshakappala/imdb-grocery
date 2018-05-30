@@ -11,7 +11,7 @@ STORE_MENU = "
   1. Load Inventory
   2. View Inventory
   3. Billing
-  4. View Sales
+  4. View Orders
   5. View Revenue
   6. Close Store
 "
@@ -35,7 +35,7 @@ while store.open?
     when 4
       store.viewOrders
     when 5
-      store.viewSales
+      store.viewRevenue
     when 6
       store.close
     else

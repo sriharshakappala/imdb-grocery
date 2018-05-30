@@ -45,7 +45,6 @@ class CartService
     end
     puts DISCOUNT_MENU
     option = gets.chomp.to_i
-    binding.pry
     discountType, discountPercent = getdiscountProperties option
     order = Order.new(discountType, discountPercent)
     cart.cart_items.each do |i|
@@ -54,6 +53,7 @@ class CartService
       )
     end
     store.orders << order
+    binding.pry
     store.sales += order.totalAfterDiscount
   end
 

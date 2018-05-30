@@ -19,10 +19,11 @@ class Store
     tp inventory, 'code', 'name', 'price', 'discount', 'quantity'
   end
 
-  def viewSales
+  def viewOrders
+    binding.pry
   end
 
-  def viewRevenue
+  def viewSales
     binding.pry
   end
 
