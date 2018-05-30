@@ -82,15 +82,14 @@ class StoreService
     store.orders.each do |order|
       puts "Order Number - #{order.id}"
       tp order.order_items, 'code', 'name', 'quantity', 'price', 'discount', 'total_before_discount', 'total_after_discount'
-      puts 'DISCOUNT INFO'
-      puts "Discount Type - #{order.discount_type}"
-      puts "Discount Percent - #{order.discount_percent}"
+      puts "Discount Type - #{order.discount_type} : Discount Percent - #{order.discount_percent}"
+      puts "Bill Amount - #{order.totalAfterDiscount}"
       puts "*********************************************************************"
     end
   end
 
   def viewSales
-    puts "Sales so far is - #{order.sales}"
+    puts "Sales so far is - #{store.sales}"
   end
 
 end

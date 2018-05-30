@@ -59,6 +59,7 @@ class CartService
     end
     store.orders << order
     store.sales += order.totalAfterDiscount
+    puts "Your order #{order.id} placed successfully"
   end
 
   private
